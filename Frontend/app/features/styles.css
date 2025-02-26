@@ -1,0 +1,43 @@
+/* Add smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+.feature-panel {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.pipeline-step {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.connection-line {
+  height: 0;
+}
+
+.security-hex {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.cost-metric {
+  width: 0;
+}
+
+@media (max-width: 768px) {
+  .feature-panel {
+    scroll-snap-align: start;
+  }
+}
+
+/* Dark mode styles */
+.dark .cost-metric {
+  opacity: 0.8;
+}
+
+.dark .connection-line {
+  opacity: 0.6;
+}
+

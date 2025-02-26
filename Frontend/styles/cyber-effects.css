@@ -1,0 +1,72 @@
+:root {
+  --cyber-primary: rgb(0, 203, 221);
+  --cyber-glow: rgba(0, 203, 221, 0.2);
+}
+
+.neon-text {
+  text-shadow: 0 0 5px var(--cyber-primary), 0 0 10px var(--cyber-primary), 0 0 20px var(--cyber-primary);
+}
+
+.cyber-grid {
+  background: linear-gradient(90deg, var(--cyber-glow) 1px, transparent 1px),
+    linear-gradient(var(--cyber-glow) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.1;
+}
+
+.matrix-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent, var(--cyber-glow)),
+    repeating-linear-gradient(
+      90deg,
+      var(--cyber-highlight) 0px,
+      var(--cyber-highlight) 1px,
+      transparent 1px,
+      transparent 20px
+    );
+  background-size: 100% 100%, 20px 20px;
+  animation: matrix-fall 20s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes matrix-fall {
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.cyber-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.scan-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyber-primary), transparent);
+  opacity: 0.7;
+  animation: scan 2s linear infinite;
+  filter: blur(1px);
+}
+
+@keyframes scan {
+  to {
+    transform: translateY(100vh);
+  }
+}
+

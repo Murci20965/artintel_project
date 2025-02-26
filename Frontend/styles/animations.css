@@ -1,0 +1,121 @@
+/* Base animation keyframes */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(0, 203, 221, 0.5), 0 0 10px rgba(0, 203, 221, 0.3), 0 0 15px rgba(0, 203, 221, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 203, 221, 0.5), 0 0 20px rgba(0, 203, 221, 0.3), 0 0 30px rgba(0, 203, 221, 0.1);
+  }
+}
+
+@keyframes cyber-pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Utility classes */
+.animate-glitch {
+  animation: glitch 1s infinite;
+}
+
+.animate-glow {
+  animation: glow 2s infinite alternate;
+}
+
+.animate-cyber-pulse {
+  animation: cyber-pulse 2s infinite;
+}
+
+/* Hover effects */
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(0, 203, 221, 0.5), 0 0 30px rgba(0, 203, 221, 0.3);
+}
+
+/* Scroll-triggered animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cyber UI elements */
+.cyber-border {
+  position: relative;
+  border: 1px solid rgba(0, 203, 221, 0.5);
+}
+
+.cyber-border::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 1px solid rgba(0, 203, 221, 0.3);
+  animation: glow 2s infinite alternate;
+}
+
+/* Digital noise texture */
+.digital-noise {
+  position: relative;
+  overflow: hidden;
+}
+
+.digital-noise::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* Neon text effect */
+.neon-text {
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 203, 221, 0.5), 0 0 10px rgba(0, 203, 221, 0.3), 0 0 15px rgba(0, 203, 221, 0.1);
+}
+

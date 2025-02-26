@@ -1,0 +1,65 @@
+@keyframes shimmer {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(0, 203, 221, 0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+/* Grid pattern */
+.cyber-grid {
+  background-image: radial-gradient(circle at center, rgba(0, 203, 221, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: center;
+}
+
+/* Cyber background pattern */
+.cyber-pattern {
+  position: relative;
+  background: linear-gradient(to bottom, rgba(0, 203, 221, 0.1), transparent 50%, rgba(0, 203, 221, 0.05));
+}
+
+.cyber-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, rgba(0, 203, 221, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 203, 221, 0.1) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+/* Cyber spotlight effect */
+.cyber-spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-spotlight::before {
+  content: "";
+  position: absolute;
+  inset: -100%;
+  background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(0, 203, 221, 0.15), transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cyber-spotlight:hover::before {
+  opacity: 1;
+}
+
